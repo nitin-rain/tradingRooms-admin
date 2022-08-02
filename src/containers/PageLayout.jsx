@@ -17,9 +17,6 @@ export default function PageLayout({ children }) {
 				</div>
 				<div className={classes.page_viewarea}>{children}</div>
 			</div>
-			{/* navbar */}
-			{/* sidebar */}
-			{/* childrens */}
 		</div>
 	);
 }
