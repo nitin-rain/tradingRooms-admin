@@ -6,7 +6,7 @@ export const pageLayoutStyles = makeStyles({
 	container: {
 		display: "flex",
 		flexDirection: "column",
-
+		background: "var(--background)",
 		height: "100vh",
 		boxSizing: "border-box",
 	},
