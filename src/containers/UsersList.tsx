@@ -2,21 +2,21 @@
 
 import React, { useEffect } from "react";
 import UserListTable from "../components/table/UserList.table";
-import useAPI from "../hooks/useApi";
+import useAPI, { callAPIParams } from "../hooks/useApi";
 import PageLayout from "./PageLayout";
 
-const UsersReqBody = {
+const userBody: callAPIParams = {
 	url: "https://admin.raintech.ai/users",
 	method: "get",
 };
 
 export default function UsersList() {
-	const columns = ["User ID", "Name", "Email", "Phone No"];
+	const columns: string[] = ["User ID", "Name", "Email", "Phone No"];
 
 	const usersList = useAPI();
 
 	useEffect(() => {
-		usersList?.callAPI(UsersReqBody);
+		usersList?.callAPI(userBody);
 	}, []);
 
 	console.log("userList---", usersList?.data);

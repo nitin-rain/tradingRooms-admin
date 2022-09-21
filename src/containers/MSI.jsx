@@ -19,6 +19,9 @@ export default function MSI() {
 		getMSIData?.callAPI(MSIreqBody);
 	}, []);
 
+	if (getMSIData?.loading) return <h2>Loading...</h2>;
+	if (getMSIData?.error) return <h2>Error</h2>;
+
 	return (
 		<PageLayout>
 			{getMSIData?.data && (
@@ -26,7 +29,7 @@ export default function MSI() {
 					<table cellSpacing={0} className={classes.table}>
 						<thead>
 							<tr>
-								{Object.keys(getMSIData?.data[0])?.map((title) => (
+								{Object.keys(getMSIData?.data[0]).map((title) => (
 									<th key={title}>{title}</th>
 								))}
 							</tr>
@@ -43,8 +46,6 @@ export default function MSI() {
 					</table>
 				</div>
 			)}
-
-			{getMSIData?.loading && <h2>Loading...</h2>}
 		</PageLayout>
 	);
 }

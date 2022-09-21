@@ -4,14 +4,23 @@ import { useCallback, useEffect, useState } from "react";
 import qs from "qs";
 import { API } from "../apis/axiosInstance";
 
-export default function useAPI() {
-	const [data, setData] = useState(null);
-	const [error, setError] = useState(false);
-	const [loading, setLoading] = useState(null);
+export interface callAPIParams {
+	url: string;
+	method: "get" | "post";
+	formData?: {};
+}
 
-	// const callAPI = useCallback(() => , [url, method]);
+export default function useAPI(): {
+	data: [];
+	error: boolean;
+	loading: boolean;
+	callAPI: ({}: callAPIParams) => void;
+} {
+	const [data, setData] = useState<[]>([]);
+	const [error, setError] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(false);
 
-	function callAPI({ url, method, formData = null }) {
+	function callAPI({ url, method, formData = {} }: callAPIParams) {
 		setLoading(true);
 		setError(false);
 		API({
@@ -24,7 +33,7 @@ export default function useAPI() {
 
 				if (response?.data?.E) {
 					setError(true);
-					setData(null);
+					setData([]);
 				} else {
 					setError(false);
 					setData(response?.data?.D);
@@ -33,17 +42,12 @@ export default function useAPI() {
 			})
 			.catch((error) => {
 				setError(true);
-				setData(null);
+				setData([]);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
 	}
-
-	// useEffect(() => {
-	// 	console.log("inside");
-	// 	callAPI();
-	// }, [url]);
 
 	return {
 		data,

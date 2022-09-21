@@ -1,5 +1,5 @@
 /** @format */
-
+import React from "react";
 import "./App.css";
 import RoutesComp from "./routes/Routes";
 

@@ -4,7 +4,11 @@ import Navbar from "../components/navbar/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
 import { pageLayoutStyles } from "../styles/pageLayout-styles/pagelayout.styles";
 
-export default function PageLayout({ children }) {
+interface Props {
+	children: React.ReactNode;
+}
+
+export default function PageLayout({ children }: Props) {
 	const classes = pageLayoutStyles();
 	return (
 		<div className={classes.container}>
