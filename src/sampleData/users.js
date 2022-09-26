@@ -21,4 +21,6 @@ export const User = {
 	introducer: 0,
 	apikey: "70d380de-d924-11ec-b598-064eaeae9d2a",
 	apisecret: "8dff2187-d924-11ec-b598-064eaeae9d2a",
+	// created on
+	// introducer link
 };

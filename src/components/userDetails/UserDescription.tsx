@@ -2,19 +2,13 @@
 import React from "react";
 import styled from "styled-components";
 
-interface userDescriptionProps {
-	uid: string;
-	avatar: string | null;
-	name: string;
-}
-
 const DescContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid var(--border);
-
+	margin-bottom: 1rem;
 	background: var(--paper);
 	border-radius: 10px;
 	padding: 1rem;
@@ -38,6 +32,12 @@ const UIDContainer = styled.div`
 	font-size: 12px;
 `;
 
+interface userDescriptionProps {
+	uid: string;
+	avatar: string | null;
+	name: string;
+}
+
 const UserDescription: React.FC<userDescriptionProps> = ({
 	uid,
 	avatar,
@@ -52,4 +52,4 @@ const UserDescription: React.FC<userDescriptionProps> = ({
 	);
 };
 
-export default UserDescription;
+export default React.memo(UserDescription);
