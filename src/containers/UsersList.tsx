@@ -19,7 +19,7 @@ export default function UsersList() {
 		usersList?.callAPI(userBody);
 	}, []);
 
-	console.log("userList---", usersList?.data);
+	// console.log("userList---", usersList?.data);
 
 	if (usersList?.loading) return <h2>Loading...</h2>;
 	if (usersList?.error) return <h2>Error</h2>;

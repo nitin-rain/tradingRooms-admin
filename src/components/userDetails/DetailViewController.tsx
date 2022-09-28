@@ -2,7 +2,7 @@
 
 import React from "react";
 import UserBrokers from "./UserBrokers";
-import UserCreatedRooms from "./UserCreatedRooms";
+import UserCreatedRooms from "./UserCreatedRooms/UserCreatedRooms";
 import UserProfile from "./UserProfile";
 import UserRoomMemberships from "./UserRoomMemberships";
 import UserWallet from "./UserWallet";
